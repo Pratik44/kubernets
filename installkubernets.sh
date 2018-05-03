@@ -42,13 +42,14 @@ cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf | grep cgroup-driver
 sysctl net.bridge.bridge-nf-call-iptables=1
 
 # initialize kube master
+kubeadm init --pod-network-cidr 10.244.0.0/16
 
+#
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
-kubeadm init --pod-network-cidr 10.244.0.0/16
 
 #add flannel
 kubectl apply -f kube-flannel.yml
