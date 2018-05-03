@@ -55,11 +55,11 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 
-#add flannel
-kubectl apply -f kube-flannel.yml
-
 #schedule pods on master node
 kubectl taint nodes --all node-role.kubernetes.io/master-
+
+#add flannel
+kubectl apply -f kube-flannel.yml
 
 #Verify dns pod is up and running
 kubectl get pods --all-namespaces
