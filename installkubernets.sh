@@ -14,6 +14,9 @@ EOF
 #unset selinux
 setenforce 0
 
+#enable ip forwarding
+sysctl -w net.ipv4.ip_forward=1
+
 #install docker
 yum install -y docker
 systemctl enable docker && systemctl start docker
