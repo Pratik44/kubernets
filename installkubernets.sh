@@ -41,6 +41,10 @@ cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf | grep cgroup-driver
 
 sysctl net.bridge.bridge-nf-call-iptables=1
 
+#disable firewall
+systemctl stop firewalld
+systemctl disable firewalld
+
 # initialize kube master
 kubeadm init --pod-network-cidr 10.244.0.0/16
 
