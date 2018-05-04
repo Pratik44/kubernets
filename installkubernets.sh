@@ -63,3 +63,5 @@ kubectl apply -f kube-flannel.yml
 
 #Verify dns pod is up and running
 kubectl get pods --all-namespaces
+
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
