@@ -45,8 +45,11 @@ sysctl net.bridge.bridge-nf-call-iptables=1
 systemctl stop firewalld
 systemctl disable firewalld
 
-# initialize kube master
-kubeadm init --pod-network-cidr 10.244.0.0/16
+# initialize kube master for flannel
+#kubeadm init --pod-network-cidr 10.244.0.0/16
+
+# initialize kube master for calico
+kubeadm init --pod-network-cidr=192.168.0.0/16
 
 #
 mkdir -p $HOME/.kube
@@ -58,8 +61,11 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 #schedule pods on master node
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
-#add flannel
-kubectl apply -f kube-flannel.yml
+#configure add flannel
+#kubectl apply -f 
+
+#configure calico
+kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml
 
 #Verify dns pod is up and running
 kubectl get pods --all-namespaces
