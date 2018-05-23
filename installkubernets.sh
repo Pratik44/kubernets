@@ -79,5 +79,7 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/
 echo " Please update to node port :
 kubectl get services kubernetes-dashboard -n kube-system
 kubectl get pods --all-namespaces
-kubectl proxy --address 10.142.0.3 --port=30000 --accept-hosts='^*$' &
+kubectl cluster-info
+kubectl edit service kubernetes-dashboard -n kube-system
+kubectl proxy --address <internal_ip> --port=30000 --accept-hosts='^*$' &
 "
