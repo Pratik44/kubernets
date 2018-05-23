@@ -70,4 +70,14 @@ kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/
 #Verify dns pod is up and running
 kubectl get pods --all-namespaces
 
+yum install git -y
+git clone https://github.com/kubernetes/heapster.git
+kubectl create -f ./heapster/deploy/kube-config/influxdb/influxdb.yaml
+kubectl create -f ./heapster/deploy/kube-config/influxdb/heapster.yaml
 kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+
+echo " Please update to node port :
+kubectl get services kubernetes-dashboard -n kube-system
+kubectl get pods --all-namespaces
+kubectl proxy --address 10.142.0.3 --port=30000 --accept-hosts='^*$' &
+"
