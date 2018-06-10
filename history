@@ -1,0 +1,588 @@
+[root@kubernetesmaster ~]# history
+    1  vi installkubernetes.sh
+    2  sh installkubernetes.sh 
+    3  tail -4 installkubernetes.sh 
+    4  kubectl get pods --all-namespaces
+    5  yum install git -y
+    6   git clone https://github.com/kubernetes/heapster.git
+    7  cd heapster/deploy/kube-config/influxdb
+    8  kubectl create -f influxdb.yaml
+    9  kubectl create -f heapster.yaml
+   10  less influxdb.yaml 
+   11  less heapster.yaml 
+   12  vi kubernetes-dashboard.yaml
+   13  kubectl create -f kubernetes-dashboard.yaml 
+   14  vi kubernetes-dashboard.yaml
+   15  kubectl create -f kubernetes-dashboard.yaml 
+   16  cd -
+   17  vi kubernetes-dashboard.yaml
+   18  cd -
+   19  mb kubernetes-dashboard.yaml  ~/
+   20  mv kubernetes-dashboard.yaml  ~/
+   21  ls -la
+   22  cd -
+   23  ls -la
+   24  vi kubernetes-dashboard.yaml 
+   25  kubectl config view
+   26  kubectl -n kube-system edit service kubernetes-dashboard
+   27  kubectl get pods --all-namespaces
+   28  vi kubernetes-dashboard.yaml 
+   29  ls -la
+   30  kubectl create -f kubernetes-dashboard.yaml 
+   31  kubectl -n kube-system edit service kubernetes-dashboard 
+   32  kubectl get services kubernetes-dashboard -n kube-system
+   33  kubectl logs -n kube-system
+   34  kubectl get pods --all-namespaces
+   35  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   36  yum install links -y
+   37  ping 35.196
+   38  links http://35.196.78.96:30000/
+   39  links http://35.196.78.96:8443/
+   40  links https://35.196.78.96:8443/
+   41  links http://10.104.34.154:30859/
+   42  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   43  links http://10.104.34.154:8443
+   44  history
+   45  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   46  links http://35.196.78.96:8443/
+   47  links http://35.196.78.96:8443/ui
+   48  kubectl get services kubernetes-dashboard -n kube-system
+   49  links http://10.104.34.154:8443/ui
+   50  ps aux  | grep proxy
+   51  kubectl proxy --port=8080 &
+   52  ps aux  | grep proxy
+   53  kubectl proxy --port=8080 --address=10.104.34.154
+   54  ifconfig
+   55  kubectl proxy --port=8080 --address=10.142.0.3
+   56  kubectl proxy --port=8080 --address=10.142.0.3 &
+   57  ps aux  | grep proxy
+   58  kubectl proxy --address 0.0.0.0 --accept-hosts .* &
+   59  ps aux  | grep proxy
+   60  links http://10.142.0.3:8443/ui
+   61  links http://10.142.0.3:8080/ui
+   62  links http://10.142.0.3:8080
+   63  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   64  kubectl -n kube-system edit service kubernetes-dashboard
+   65  ifconfig | grep 10.104.34.154
+   66  ls -la
+   67  cat kubernetes-dashboard.yaml | grep 10.104.34.154
+   68  cd -
+   69  cat *.yaml | grep 10.104.34.154
+   70  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   71  kubectl get services kubernetes-dashboard -n kube-system
+   72  kubectl -n kube-system edit service kubernetes-dashboard 
+   73  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+   74  kubectl get services kubernetes-dashboard -n kube-system
+   75  kubectl -n kube-system edit service kubernetes-dashboard
+   76  cd ~
+   77  ls -la
+   78  cat <<EOF | kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f -
+   79  apiVersion: rbac.authorization.k8s.io/v1beta1
+   80  kind: ClusterRoleBinding
+   81  metadata:
+   82    name: kubernetes-dashboard
+   83    labels:
+   84      k8s-app: kubernetes-dashboard
+   85  roleRef:
+   86    apiGroup: rbac.authorization.k8s.io
+   87    kind: ClusterRole
+   88    name: cluster-admin
+   89  subjects:
+   90  - kind: ServiceAccount
+   91    name: kubernetes-dashboard
+   92    namespace: kube-system
+   93  EOF
+   94  kubectl edit service kubernetes-dashboard -n kube-system
+   95  kubectl get services kubernetes-dashboard -n kube-system
+   96  kubectl describe serviceaccount kubernetes-dashboard -n kube-system
+   97  kubectl describe secrets kubernetes-dashboard-token-rsjhl
+   98  kubectl describe secrets kubernetes-dashboard-token-rsjhl  -n kube-system
+   99  links https://localhost:30859
+  100  links https://35.196.78.96:30859
+  101  links https://35.196.78.96:8080
+  102  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  103  links https://35.196.78.96:8443
+  104  links https://localhost:30859
+  105  kubectl get services kubernetes-dashboard -n kube-system
+  106  kubectl edit service kubernetes-dashboard -n kube-system
+  107  links https://35.196.78.96:30859/api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  108  links https://10.142.0.3:30859/api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  109  links https://10.142.0.3:30859/login
+  110  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  111  links https://10.142.0.3:30859/login
+  112  kubectl edit service kubernetes-dashboard -n kube-system
+  113  links https://10.142.0.3:30859
+  114  links https://10.142.0.3:30859/#\!/login
+  115  links https://35.196.78.96:30859/#\!/login
+  116  links https://10.142.0.3:30859/
+  117  links https://10.142.0.3:30859/
+  118  kubectl edit service kubernetes-dashboard -n kube-system
+  119  links https://10.142.0.3:30859/https:///api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  120  links https://10.142.0.3:30859/https:///api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  121  links http://10.142.0.3:30859/
+  122  links http://35.196.78.96:30859
+  123  links http://10.142.0.3:30859/ui
+  124  links http://10.142.0.3:30859/ui
+  125  links https://10.142.0.3:30859/ui
+  126  links https://10.142.0.3:30859/login
+  127  links https://10.142.0.3:30859/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#\!/overview?namespace=defaul
+  128  links https://10.142.0.3:30859/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#\!/overview?namespace=defaul
+  129  ls -la
+  130  tar -xvf .gz 
+  131  LS LA
+  132  ls -la
+  133  cd .gz 
+  134  tar -xvf .gz 
+  135  tar -xvf .gz  
+  136  kubectl cluster-info
+  137  links https://10.142.0.3:6443/ui
+  138  kubectl describe secrets kubernetes-dashboard-token-rsjhl -n kube-system -oplaintext
+  139  kubectl describe secrets kubernetes-dashboard-token-rsjhl -n kube-system -o plaintext
+  140  kubectl describe secrets kubernetes-dashboard-token-rsjhl -n kube-system plaintext
+  141  kubectl describe secrets 
+  142  kubectl describe secrets kubernetes-dashboard-token-rsjhl -n kube-system 
+  143  kubectl clusterinfo
+  144  kubectl cluster-info
+  145  links https://10.142.0.3:6443
+  146  links https://10.142.0.3:8080
+  147  ps aux 
+  148  ps aux | grep prox
+  149  links http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  150  links https://10.142.0.3:6443
+  151  ps aux | grep prox
+  152  kubectl cluster-info
+  153  links  https://10.142.0.3:6443/api/v1/namespaces/kube-system/services/heapster/proxy
+  154  mkdir -p certs/k8s
+  155  cat <<EOF > certs/k8s/k8s-ca-csr.json
+  156  {
+  157    "CN":"kubernetes",
+  158    "key":{
+  159      "algo":"rsa",
+  160      "size":2048
+  161    },
+  162    "names":[
+  163      {
+  164        "C":"cn",
+  165        "ST":"DreamState",
+  166        "L":"DreamCity",
+  167        "O":"DreamOrganization",
+  168        "OU":"DreamSystem"
+  169      }
+  170    ]
+  171  }
+  172  EOF
+  173  cfssl gencert -initca certs/k8s/k8s-ca-csr.json | cfssljson -bare certs/k8s/k8s-ca
+  174  openssl gencert -initca certs/k8s/k8s-ca-csr.json | cfssljson -bare certs/k8s/k8s-ca
+  175  yum install cfssl -y
+  176  links  https://10.142.0.3:6443/api/v1/namespaces/kube-system/services/heapster/proxy
+  177  kubectl cluster-info
+  178  links http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  179  kubectl cluster-info
+  180  links  https://10.142.0.3:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  181  links http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  182  kubectl cluster-info
+  183  links http://10.142.0.3:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  184  links https://10.142.0.3:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  185  links  https://10.142.0.3:6443/api/v1/namespaces/kube-system/services/heapster/proxy
+  186  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  187  kubectl cluster-info
+  188  links https://10.142.0.3:6443
+  189  links https://10.142.0.3:6443
+  190  kubectl cluster-info
+  191  links https://10.142.0.3:6443
+  192  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  193  export CFSSL_URL="https://pkg.cfssl.org/R1.2"
+  194  curl -L "${CFSSL_URL}/cfssl_linux-amd64" -o all-in-one/bin/cfssl
+  195  curl -L "${CFSSL_URL}/cfssljson_linux-amd64" -o all-in-one/bin/cfssljson
+  196  chmod +x all-in-one/bin/cfssl*
+  197  export CFSSL_URL="https://pkg.cfssl.org"
+  198  curl -L "${CFSSL_URL}/cfssl_linux-amd64" -o all-in-one/bin/cfssl
+  199  mkdir all-in-one
+  200  mkdir -p all-in-one/bin/cfssl
+  201  curl -L "${CFSSL_URL}/cfssl_linux-amd64" -o all-in-one/bin/cfssl
+  202  yum install wget -y
+  203  wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64
+  204  wget https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64
+  205  ls -la
+  206  mv cfssljson_linux-amd64 cfssl
+  207  mv cfssl cfssljson
+  208  mv cfssl_linux-amd64 cfssl 
+  209  ls -la
+  210  chmod +x cf*
+  211  ls -la
+  212  mkdir -p certs/k8s
+  213  cat <<EOF > certs/k8s/k8s-ca-csr.json
+  214  {
+  215    "CN":"kubernetes",
+  216    "key":{
+  217      "algo":"rsa",
+  218      "size":2048
+  219    },
+  220    "names":[
+  221      {
+  222        "C":"cn",
+  223        "ST":"DreamState",
+  224        "L":"DreamCity",
+  225        "O":"DreamOrganization",
+  226        "OU":"DreamSystem"
+  227      }
+  228    ]
+  229  }
+  230  EOF
+  231  cfssl gencert -initca certs/k8s/k8s-ca-csr.json | cfssljson -bare certs/k8s/k8s-ca
+  232  ./cfssl gencert -initca certs/k8s/k8s-ca-csr.json | ./cfssljson -bare certs/k8s/k8s-ca
+  233  cat <<EOF > certs/k8s/kube-apiserver-csr.json
+  234  {
+  235    "CN":"kube-apiserver",
+  236    "hosts":[
+  237      "127.0.0.1",
+  238      "${KUBE_MASTER_SERV_IP_01}",
+  239      "${KUBE_MASTER_SERV_01}",
+  240      "${KUBE_CLUSTER_SERVICE_IP}",
+  241      "kubernetes",
+  242      "kubernetes.default",
+  243      "kubernetes.default.svc",
+  244      "kubernetes.default.svc.cluster",
+  245      "kubernetes.default.svc.cluster.local"
+  246    ],
+  247    "key":{
+  248      "algo":"rsa",
+  249      "size":2048
+  250    },
+  251    "names":[
+  252      {
+  253        "O":"system:masters"
+  254      }
+  255    ]
+  256  }
+  257  EOF
+  258  vi certs/k8s/kube-apiserver-csr.json
+  259  vi certs/k8s/kube-apiserver-csr.json
+  260  kubectl cluster-info
+  261  vi certs/k8s/kube-apiserver-csr.json
+  262  vi certs/k8s/kube-apiserver-csr.json
+  263  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  264  kubectl edit service kubernetes-dashboard -n kube-system
+  265  vi certs/k8s/kube-apiserver-csr.json
+  266  cfssl gencert -ca=certs/k8s/k8s-ca.pem   -ca-key=certs/k8s/k8s-ca-key.pem   -config=certs/ca-config.json   -profile=default \
+  267  ./cfssl gencert -ca=certs/k8s/k8s-ca.pem  -ca-key=certs/k8s/k8s-ca-key.pem -config=certs/ca-config.json -profile=default certs/k8s/kubelet-master-csr.json | ./cfssljson -bare certs/k8s/kubelet-master
+  268  ./cfssl gencert -ca=certs/k8s/k8s-ca.pem -ca-key=certs/k8s/k8s-ca-key.pem -config=certs/ca-config.json   -profile=default certs/k8s/kube-apiserver-csr.json | ./cfssljson -bare certs/k8s/kube-apiserver
+  269  vi certs/k8s/kube-apiserver-csr.json
+  270  vi certs/k8s/kube-apiserver-csr.json
+  271  vi certs/k8s/kube-apiserver-csr.json
+  272  vi certs/k8s/kube-apiserver-csr.json
+  273  vi certs/k8s/kube-apiserver-csr.json
+  274  ./cfssl gencert -ca=certs/k8s/k8s-ca.pem -ca-key=certs/k8s/k8s-ca-key.pem -config=certs/ca-config.json   -profile=default certs/k8s/kube-apiserver-csr.json | ./cfssljson -bare certs/k8s/kube-apiserver
+  275  sestatus
+  276  links http://10.142.0.3:6443
+  277  links https://10.142.0.3:6443
+  278  grep 'client-certificate-data' ~/.kube/config | head -n 1 | awk '{print $2}' | base64 -d >> kubecfg.crt
+  279  less kubecfg.crt 
+  280  1
+  281  grep 'client-key-data' ~/.kube/config | head -n 1 | awk '{print $2}' | base64 -d >> kubecfg.key
+  282  less kubecfg.key 
+  283  !
+  284  les ~/.kube/config
+  285  less ~/.kube/config
+  286  !
+  287  openssl pkcs12 -export -clcerts -inkey kubecfg.key -in kubecfg.crt -out kubecfg.p12 -name "kubernetes-client"
+  288  cat kubecfg.p12
+  289  less kubecfg.p12 
+  290  cp kubecfg.p12 /home/pratik4gcloud/
+  291  ls -la
+  292  ls -la /home/pratik4gcloud/
+  293  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  294  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  295  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  296  kubectl cluster-info
+  297  ps aux | grep proxy
+  298  jobs
+  299  kill -9 7499  
+  300  kill -9 7959  
+  301  kill -9 8143
+  302  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  303  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  304  links https://35.196.78.96:6443/ui
+  305  kubectl edit service kubernetes-dashboard -n kube-system
+  306  links https://35.196.78.96:6443//api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  307  links https://35.196.78.96:6443/ui
+  308  links https://35.196.78.96:6443//api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  309  history
+  310  kubectl describe secrets kubernetes-dashboard-token-rsjhl  -n kube-system
+  311  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  312  kubectl edit service kubernetes-dashboard -n kube-system
+  313  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  314  kubectl edit service kubernetes-dashboard -n kube-system
+  315  links https://35.196.78.96:6443//api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  316  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  317  kubectl get pods --namespaces-all
+  318  kubectl get pods --namespaces=kube-system
+  319  kubectl get pods --all-namespaces
+  320  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  321  kubectl logs -n kube-system kube-proxy-zdmmf
+  322  history
+  323  kubectl edit service kubernetes-dashboard -n kube-system
+  324  kubectl cluster-info
+  325  kubectl edit service kubernetes-dashboard -n kube-system
+  326  kubectl cluster-info
+  327  kubectl edit service kubernetes-dashboard -n kube-system
+  328  cat kubernetes-dashboard.yaml 
+  329  kubectl edit service kubernetes-dashboard -n kube-system
+  330  links https://35.196.78.96:30000/
+  331  kubectl dashboard --url
+  332  kubectl proxy --port=8080 
+  333  kubectl proxy --port=8080 &
+  334  kubectl proxy --port=8080 --address=10.142.0.3 &
+  335  kubectl proxy --address 0.0.0.0 --accept-hosts &
+  336  kubectl proxy --address 35.196.78.96 --port=30000 --accept-hosts='^*$'
+  337  kubectl proxy --address 35.196.78.96 --port=30002 --accept-hosts='^*$'
+  338  kubectl proxy --address 35.196.78.96 --port=3000 --accept-hosts='^*$'
+  339  kubectl proxy --address 10.142.0.3 --port=30002 --accept-hosts='^*$'
+  340  kubectl proxy --address 10.142.0.3 --port=30002 --accept-hosts='^*$' &
+  341  kubectl describe secrets kubernetes-dashboard-token-rsjhl  -n kube-system
+  342  ifconfig | grep 35.196.78.96
+  343  ifconfig | grep 10.142.0.3
+  344  history
+  345  kubectl edit service kubernetes-dashboard -n kube-system
+  346  kubectl get pods --namespaces=kube-system
+  347  kubectl get services kubernetes-dashboard -n kube-system
+  348  kubectl cluster-info
+  349  ifconfig | grep 10.142.0.3
+  350  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  351  kubectl get pods --all-namespaces
+  352  kubectl edit service kubernetes-dashboard -n kube-system
+  353  vi Dockerfile
+  354  docker build -t infy/test-jenkins-image:1.0 .
+  355  vi jenkins-deployment.yaml
+  356  kubectl apply -f jenkins-deployment.yaml 
+  357  kubectl describe pod | grep jenkins
+  358  docker build -t ybushnev/my-jenkins-image:1.0 . 
+  359  vi jenkins-deployment.yaml
+  360  kubectl apply -f jenkins-deployment.yaml
+  361  kubectl describe pod | grep jenkins
+  362  vim jenkins-service.yaml
+  363  kubectl create -f jenkins-service.yaml
+  364  kubectl edit service jenkins -n kube-system
+  365  kubectl edit service jenkins 
+  366  vi ingress.yaml
+  367  kubectl create -f ingress.yaml 
+  368  kubectl get ing
+  369  vi ingress.yaml
+  370  kubectl get ing
+  371  kubectl edit ing test
+  372  kubectl edit ing test-ingress
+  373  kubectl get services
+  374  cat ingress.yaml
+  375  docker ps
+  376  docker ps | grep jenkis
+  377  docker ps | grep jenkins
+  378  ls -la
+  379  .
+  380  ls -la
+  381  kubectl get pods
+  382  kubectl delete jenkins-75f9f59855-jx49m
+  383  history
+  384  kubectl  destoy -f jenkins-service.yaml
+  385  kubectl  destroy -f jenkins-service.yaml
+  386  kubectl  delete -f jenkins-service.yaml
+  387  kubectl get pods
+  388  kubectl delete -f jenkins-deployment.yaml
+  389  kubectl get pods
+  390  vi default-backend-deployment.yaml
+  391  vi default-backend-service.yaml
+  392  vi nginx-ingress-controller-deployment.yaml
+  393  vi nginx-ingress-controller-service.yaml
+  394  vi tomcat8-jenkins-deployment.yaml
+  395  vi tomcat8-jenkins-service.yaml
+  396  vi tomcat8-ingress.yaml
+  397  vi main-ingress.yaml
+  398  kubectl create -f default-backend-deployment.yaml
+  399  kubectl create -f nginx-ingress-controller-deployment.yaml
+  400  vi nginx-ingress-controller-deployment.yaml
+  401  kubectl create -f nginx-ingress-controller-deployment.yaml
+  402  kubectl create -f tomcat8-jenkins-deployment.yaml
+  403  vi tomcat8-jenkins-deployment.yaml
+  404  kubectl create -f tomcat8-jenkins-deployment.yaml
+  405  kubectl create -f default-backend-service.yaml
+  406  kubectl -f nginx-ingress-controller-service.yaml
+  407  kubectl create -f nginx-ingress-controller-service.yaml
+  408  kubectl create -f tomcat8-jenkins-service.yaml
+  409  kubectl  create -f main-ingress.yaml
+  410  vi main-ingress.yaml 
+  411  kubectl  create -f main-ingress.yaml
+  412  kubectl  get pods
+  413  kubectl  getnodes
+  414  kubectl  get nodes
+  415  kubectl  get pods
+  416  docker ps -a
+  417  docker ps 
+  418  kubectl  get pods
+  419  kubectl edit ing test-ingress
+  420  ls -la
+  421  cat ingress.yaml
+  422  kubectl delete -f ingress.yaml
+  423  kubectl -n kube-system edit service kubernetes-dashboard
+  424  kubectl  get pods
+  425  cat main-ingress.yaml 
+  426  links http://localhost/jsnkins
+  427  links http://localhost/jenkins
+  428  links http://35.196.78.96/jenkins
+  429  vi /etc/hosts
+  430  cat main-ingress.yaml 
+  431  ping tomcat.com
+  432  links http://tomcat.com/jenkins
+  433  sf -h
+  434  df -h
+  435  ps aux | grep proxy
+  436  links https://35.196.78.96:30002/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  437  ps aux | grep proxy
+  438  links https://10.142.0.3:30002/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  439  links https://10.142.0.3/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+  440  history
+  441  ping tomcat.com
+  442  links http://localhost/jenkins
+  443  links https://localhost/jenkins
+  444  history
+  445  vi main-ingress.yaml 
+  446  links http://tomcat.com/jenkins
+  447  vi main-ingress.yaml 
+  448  ls -la 
+  449  rm -rf .main-ingress.yaml.swp
+  450  ls -la
+  451  vi main-ingress.yaml 
+  452  cat main-ingress.yaml 
+  453  history
+  454  kubectl dashboard --url
+  455  kubectl-dashboard --url
+  456  links https://35.196.78.96:6443//api/v1/namespaces/kube-system/services/kubernetes-dashboard
+  457  kubectl describe secrets kubernetes-dashboard-token-rsjhl  -n kube-system
+  458  kubectl logs -n kube-system kubernetes-dashboard-7d5dcdb6d9-h8zl7
+  459  date
+  460  ps aux | grep proxy
+  461  kill -9 10614
+  462  ps aux | grep proxy
+  463  kubectl proxy --address 10.142.0.3 --port=30002 --accept-hosts=^*$ &
+  464  links https://35.196.78.96:30002/ui
+  465  links http://35.196.78.96:30002/ui
+  466  ls -la
+  467  links http://tomcat.com/jenkins
+  468  cat main-ingress.yaml
+  469  links http:/localhost/jenkins
+  470  links http://tomcat.com:31011/jenkins/
+  471  docker ps | grep jenkins
+  472  docker logs d2f8044f8c5d
+  473  links http://tomcat.com:8080/jenkins/
+  474  docker ps | grep jenkins
+  475  kubectl get pods -n default
+  476  kubectl logs tomcat8-jenkins-57cff6d888-47wv6
+  477  kubectl edit service detaulf
+  478  kubectl edit service defaul
+  479  links http://tomcat.com/jenkins/
+  480  links http://localhost/jenkins/
+  481  vi nginx-ingress-controller-deployment.yaml
+  482  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  483  kubectl create -f nginx-ingress-controller-deployment.yaml
+  484  ifconfig | grep eth0
+  485  ifconfig | less
+  486  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  487  kubectl create -f nginx-ingress-controller-deployment.yaml
+  488  less nginx-ingress-controller-deployment.yaml
+  489  vi nginx-ingress-controller-deployment.yaml
+  490  ifconfig | less
+  491  vi nginx-ingress-controller-deployment.yaml
+  492  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  493  kubectl create -f nginx-ingress-controller-deployment.yaml
+  494  kubectl delete -f default-backend-deployment.yaml
+  495  vi default-backend-deployment.yaml 
+  496  kubectl create -f default-backend-deployment.yaml
+  497  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  498  kubectl create -f nginx-ingress-controller-deployment.yaml
+  499  kubectl get pods -n kube-system
+  500  kubectl get configmap -n kube-system
+  501  kubectl get events
+  502  curl -o get_helm.sh https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
+  503  chmod +x get_helm.sh
+  504  ./get_helm.sh
+  505  kubectl create serviceaccount --namespace kube-system tiller
+  506  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+  507  kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'      
+  508  helm init --service-account tiller --upgrade
+  509  kubectl get deployments -n kube-system
+  510  helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true
+  511  kubectl --namespace default get services -o wide -w nginx-ingress-controller
+  512  helm install --name nginx-ingress stable/nginx-ingress
+  513  elm del --purge nginx-ingress
+  514  helm del --purge nginx-ingress
+  515  helm install --name nginx-ingress stable/nginx-ingress
+  516  kubectl --namespace default get services -o wide -w nginx-ingress-controller
+  517  kubectl get service nginx-ingress-controller
+  518  ls -la
+  519  links http://tomcat.com/healthz
+  520  links http://tomcat.com/
+  521  history
+  522    307  links https://35.196.78.96:6443/ui
+  523  links https://35.196.78.96:6443/ui
+  524  links https://35.196.78.96:/healthz
+  525  links http://35.196.78.96/healthz
+  526  links https://35.196.78.96/healthz
+  527  kubectl create secret tls tls-certificate --key <key-file>.key --cert nginx.crt
+  528  vi create_nginx_cert.sh
+  529  sh create_nginx_cert.sh 
+  530  ps aux | grep cert
+  531  ps aux | grepcreate_nginx_cert.sh
+  532  ps aux | grep create_nginx_cert.sh
+  533  cat create_nginx_cert.sh
+  534  /etc/ssl/private/nginx-selfsigned.key
+  535  ls -la /etc/ssl/private/nginx-selfsigned.key
+  536  ls -la /etc/ssl/certs/nginx-selfsigned.crt
+  537  ls -la /etc/ssl/certs/dhparam.pem
+  538  cat create_nginx_cert.sh
+  539  openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+  540  ls -la /etc/ssl/certs/dhparam.pem
+  541  kubectl create secret tls tls-certificate --key /etc/ssl/private/nginx-selfsigned.key --cert /etc/ssl/certs/nginx-selfsigned.crt
+  542  kubectl create secret generic tls-dhparam --from-file=/etc/ssl/certs/dhparam.pem
+  543  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  544  kubectl create -f nginx-ingress-controller-deployment.yaml
+  545  links /etc/ssl/certs/dhparam.pem
+  546  links http://10.142.0.3/version
+  547  links http://35.196.78.96 /version
+  548  links http://35.196.78.96/version
+  549  ls -la
+  550  ls -lrt
+  551  vi create_nginx_cert.sh
+  552  links http://tomcat.com/jenkins
+  553  cat /etc/hosts
+  554  links http://10.142.0.3 /jenkins
+  555  links http://10.142.0.3/jenkins
+  556  ls -lrt
+  557  cat main-ingress.yaml
+  558  links https://10.109.203.67/jenkins
+  559  history
+  560  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  561  kubectl create -f nginx-ingress-controller-deployment.yaml
+  562  kubectl delete -f nginx-ingress-controller-deployment.yaml
+  563  kubectl create -f nginx-ingress-controller-deployment.yaml
+  564  ls -la
+  565  kubectl delete -f nginx-ingress-controller-service.yaml
+  566  kubectl create -f nginx-ingress-controller-service.yaml
+  567  links http:// 192.168.183.175/jenkins
+  568  links http:// 192.168.183.175
+  569  links http://192.168.183.175/jenkins
+  570  vi /etc/hosts
+  571  links http://tomcat/jenkins
+  572  links http://tomcat.com/jenkins
+  573  cat /etc/hosts
+  574  links http://tomcat.com/jenkins
+  575  cat main-ingress.yaml 
+  576  crontab -e
+  577  crontab -l
+  578  links http://tomcat.com/jenkins
+  579  cat /etc/hosts
+  580  ls -la
+  581  cat main-ingress.yaml
+  582  cat /etc/hosts
+  583  links http://tomcat.com/jenkins
+  584  links http://35.196.78.96/jenkins
+  585  links http://tomcat.com/jenkinsasfdg
+  586  cat main-ingress.yaml 
+  587  ls -la
