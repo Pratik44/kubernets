@@ -83,3 +83,20 @@ kubectl cluster-info
 kubectl edit service kubernetes-dashboard -n kube-system
 kubectl proxy --address <internal_ip> --port=30000 --accept-hosts='^*$' &
 "
+cat <<EOF > kube-access-dashboard.yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard
+  labels:
+    k8s-app: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubernetes-dashboard
+  namespace: kube-system
+EOF
+kubectl create -f kube-access-dashboard.yaml
