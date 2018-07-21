@@ -76,13 +76,7 @@ kubectl create -f ./heapster/deploy/kube-config/influxdb/influxdb.yaml
 kubectl create -f ./heapster/deploy/kube-config/influxdb/heapster.yaml
 kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 
-echo " Please update to node port :
-kubectl get services kubernetes-dashboard -n kube-system
-kubectl get pods --all-namespaces
-kubectl cluster-info
-kubectl edit service kubernetes-dashboard -n kube-system
-kubectl proxy --address <internal_ip> --port=30000 --accept-hosts='^*$' &
-"
+
 cat <<EOF > kube-access-dashboard.yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -225,3 +219,11 @@ EOF
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
+
+echo " Please update to node port :
+kubectl get services kubernetes-dashboard -n kube-system
+kubectl get pods --all-namespaces
+kubectl cluster-info
+kubectl edit service kubernetes-dashboard -n kube-system
+kubectl proxy --address <internal_ip> --port=30000 --accept-hosts='^*$' &
+"
